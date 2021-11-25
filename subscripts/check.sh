@@ -5,7 +5,7 @@
 
 echo "testing : dummy.dic";
 
-if [[ -f ~/discord-2.0/cache/dummy.dic ]]
+if [[ -f ~/bashcord/cache/dummy.dic ]]
 
 then
 echo "test result = positive";
@@ -16,7 +16,7 @@ echo "test result = negative";
         sleep 1;
 echo "generating dummy.dic";
         sleep 2;
-touch ~/discord-2.0/cache/dummy.dic;
+touch ~/bashcord/cache/dummy.dic;
 
 echo "file generated, you can continue"
 sleep 1;

@@ -1,11 +1,10 @@
 #!/bin/bash
 
-
 # sprawdz czy plik dummy istnieje, jesli nie wygeneruj
 
 echo "testing : dummy.dic";
 
-if [[ -f ~/bashcord/cache/dummy.dic ]]
+if [[ -f ~/bashcord/cache/chats/dummy.dic ]]
 
 then
 echo "test result = positive";
@@ -16,7 +15,7 @@ echo "test result = negative";
         sleep 1;
 echo "generating dummy.dic";
         sleep 2;
-touch ~/bashcord/cache/dummy.dic;
+touch ~/bashcord/cache/chats/dummy.dic;
 
 echo "file generated, you can continue"
 sleep 1;

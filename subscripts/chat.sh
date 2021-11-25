@@ -19,5 +19,5 @@ do
 
         echo "------------------------------------ (CTRL + C) to quit "
         read newlinechat
-        echo "<$username> $newlinechat" >> ~/discord-2.0/cache/chats/chat
+        echo "<$username> $newlinechat" >> ~/bashcord/cache/chats/chat
 done

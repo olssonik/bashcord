@@ -1,0 +1,39 @@
+echo " DISCLAIMER! you are about to provide passfrase for your file, remember to provide password to your friend."
+
+sleep 5;
+
+
+
+
+
+
+
+
+clear
+
+echo 'Do you still want to save state of current chat in "history" folder?'
+echo "          "
+echo "          "
+echo "What would U like to do?"
+echo "          "
+echo '1) Keep my file in "history"'
+echo "2) Remove"
+
+read choice
+
+
+if [[ $choice == "1" ]]; then
+        cp $CHATFILE $CHATFILE.copy
+        gpg -c $CHATFILE
+        mv $CHATFILE.gpg ~/bashcord/export
+		mv $CHATFILE.copy ~/bashcord/cache/history/ 
+		echo 'Your file is ready to send, its waiting in folder "export"'
+        exit
+
+if [[ $choice == "2" ]]; then
+
+        gpg -c $CHATFILE
+		echo 'Your file is ready to send, its waiting in folder "export"'
+        exit
+fi
+fi

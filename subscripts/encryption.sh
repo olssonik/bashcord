@@ -29,19 +29,10 @@ then
 else
     eval "CHATFILE=\$chatfile${num}"
     echo Selected chat is "$CHATFILE"
-fi
+fi;
 
 clear
 
-echo " DISCLAIMER! you are about to provide passfrase for your file, remember to provide password to your friend."
-
-sleep 5;
-
-gpg -c $CHATFILE
-
-mv $CHATFILE ~/bashcord/export
-
-clear
 
 echo 'Do you still want to save state of current chat in "history" folder?'
 echo "          "
@@ -55,12 +46,32 @@ read choice
 
 
 if [[ $choice == "1" ]]; then
-		mv $CHATFILE ~/bashcord/cache/history/ 
-		echo 'Your file is ready to send, its waiting in folder "export"'
+        cp $CHATFILE $CHATFILE.copy
+
+clear
+echo " DISCLAIMER! you are about to provide passfrase for your file, remember to provide password to your friend."
+
+sleep 5
+
+        gpg -c $CHATFILE
+        mv $CHATFILE.gpg ~/bashcord/export
+		mv $CHATFILE.copy ~/bashcord/cache/history/ 
+        rm -f $CHATFILE
+		echo 'Your file is ready to send, its waiting in folder "export" (you can find history folder in cache)'
         exit
 
 if [[ $choice == "2" ]]; then
+
+        gpg -c $CHATFILE
+
+
+echo " DISCLAIMER! you are about to provide passfrase for your file, remember to provide password to your friend."
+
+sleep 5
+
+        mv $CHATFILE.gpg ~/bashcord/export
         rm -f $CHATFILE
 		echo 'Your file is ready to send, its waiting in folder "export"'
         exit
+fi
 fi

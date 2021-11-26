@@ -60,7 +60,7 @@ sleep 5
 		echo 'Your file is ready to send, its waiting in folder "export" (you can find history folder in cache)'
         exit
 
-if [[ $choice == "2" ]]; then
+elif [[ $choice == "2" ]]; then
 
         gpg -c $CHATFILE
 
@@ -73,5 +73,4 @@ sleep 5
         rm -f $CHATFILE
 		echo 'Your file is ready to send, its waiting in folder "export"'
         exit
-fi
 fi

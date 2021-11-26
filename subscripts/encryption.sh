@@ -48,29 +48,47 @@ read choice
 if [[ $choice == "1" ]]; then
         cp $CHATFILE $CHATFILE.copy
 
-clear
-echo " DISCLAIMER! you are about to provide passfrase for your file, remember to provide password to your friend."
+        clear
+        echo " DISCLAIMER! you are about to provide passfrase for your file, remember to provide password to your friend."
 
-sleep 5
+        sleep 5
 
         gpg -c $CHATFILE
         mv $CHATFILE.gpg ~/bashcord/export
 		mv $CHATFILE.copy ~/bashcord/cache/history/ 
         rm -f $CHATFILE
-		echo 'Your file is ready to send, its waiting in folder "export" (you can find history folder in cache)'
+		
+
+        
+        
+        
+        echo 'Your file is ready to send, its waiting in folder "export" (you can find history folder in cache)'
+        echo "You can also use this link for so your friend can download it by himself!"
+        curl -H "Max-Downloads: 2" -H "Max-Days: 1" --upload-file $CHATFILE.gpg https://transfer.sh/$CHATFILE.gpg
+        mv $CHATFILE.gpg ~/bashcord/export      
         exit
 
+
+
+
+
+
+
+
 elif [[ $choice == "2" ]]; then
+
+
+        echo " DISCLAIMER! you are about to provide passfrase for your file, remember to provide password to your friend."
+
+        sleep 5
 
         gpg -c $CHATFILE
 
 
-echo " DISCLAIMER! you are about to provide passfrase for your file, remember to provide password to your friend."
-
-sleep 5
-
         mv $CHATFILE.gpg ~/bashcord/export
         rm -f $CHATFILE
 		echo 'Your file is ready to send, its waiting in folder "export"'
+        echo "You can also use this link for so your friend can download it by himself!"
+        curl -H "Max-Downloads: 2" -H "Max-Days: 1" --upload-file $CHATFILE.gpg https://transfer.sh/$CHATFILE.gpg
         exit
 fi

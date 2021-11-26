@@ -35,6 +35,7 @@ if [[ $opcja == "1" ]]; then
 
 elif [[ $opcja == "2" ]]; then
         ./subscripts/generate.sh
+		./subscripts/chat.sh
 
 elif [[ $opcja == "3" ]]; then
 		./subscripts/deletechat.sh

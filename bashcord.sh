@@ -45,4 +45,8 @@ elif [[ $opcja == "4" ]]; then
 
 	echo "we will do this in  a second"
 
+elif [[ $opcja == "5" ]]; then
+
+	echo "we will do this in  a second"
+
 fi

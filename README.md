@@ -1,5 +1,8 @@
 # bashcord
+Please download this script in your home directory for now
 To start:
+
+git clone https://github.com/olssonik/bashcord.git
 
 cd bashcord
 
